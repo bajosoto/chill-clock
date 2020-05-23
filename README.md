@@ -2,13 +2,16 @@
 
 Chill-o-clock is a project full of nice, warm, and cozy intentions. It was developed during "The Great Pause of 2020", when the world population fell under times of stress and longing.
 
-This clock was inspired by a [Youtube video music live stream by Chillhop Music](https://www.youtube.com/watch?v=7NOSDKb0HlU). It is a 24/7 music stream of relaxing lofi hip hop music. In it, we find a raccoon doing what most of us did during this period of recession and isolation: working from home. What inspired this project from that video is a small clock resting by the windowsill, whith the word "chill" spelled out in a 7-segment display.
+This clock was inspired by a [Youtube video music live stream by Chillhop Music](https://www.youtube.com/watch?v=7NOSDKb0HlU). It is a 24/7 music stream of relaxing lofi hip hop music. In it, we find a raccoon doing what most of us did during this period of recession and isolation: working from home. What inspired this project from that video is a small clock resting by the windowsill, with the word "chill" spelled out in a 7-segment display.
 <!-- ![Image](chill.png =100px) -->
 <img src="images/chill.png" width="800">
 
 ## What is this all about?
 Chill-o-clock looks like a standard clock, except it doesn't really tell time! By default, it displays CHILL on the screen. However, it connects to your local WiFi network and can be controlled via Alexa.
 The only configuration it needs is your WiFi credentials, which are managed from a smartphone or another device. It acquires the local time automatically through an NTP client.
+
+<img src="images/clock.jpg" width="800">
+
 It can be set up from the Alexa app to follow routines. An example scenario: The clock is displaying the time (like all clocks should), and you issue the command "Alexa, chill". Your clock then displays CHILL on the screen instead, starts playing some mellow lofi jazz and dims your bedroom lights to a custom scene. Too good to be true? 
 
 ## Components:
