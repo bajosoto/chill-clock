@@ -237,15 +237,15 @@ void setup()
 
 void loop()
 {
-    SinricPro.handle();
-    timeClient.update();
-    // int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+//     SinricPro.handle();
+//     timeClient.update();
+    int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
 
-    // while(numNewMessages) {
-    //   Serial.println("got response");
-    //   handleNewMessages(numNewMessages);
-    //   numNewMessages = bot.getUpdates(bot.last_message_received + 1);
-    // }
+    while(numNewMessages) {
+      Serial.println("got response");
+      handleNewMessages(numNewMessages);
+      numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    }
 //    Serial.print(timeClient.getHours());
 //    Serial.print(":");
 //    Serial.print(timeClient.getMinutes());

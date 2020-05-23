@@ -7,7 +7,7 @@ This clock was inspired by a [Youtube video music live stream by Chillhop Music]
 <img src="images/chill.png" width="800">
 
 ## What is this all about?
-Chill-o-clock looks like a standard clock, except it doesn't really tell time! By default, it displays CHILL on the screen. However, it connects to your local WiFi network and can be controlled via Alexa.
+Chill-o-clock looks like a standard clock, except it doesn't really tell time! By default, it displays CHILL on the screen. However, it connects to your local WiFi network and can be controlled via Alexa and Telegram.
 The only configuration it needs is your WiFi credentials, which are managed from a smartphone or another device. It acquires the local time automatically through an NTP client.
 
 <img src="images/clock.png" width="800">
