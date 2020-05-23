@@ -6,6 +6,9 @@
 #include <ESP8266WebServer.h>     //Local WebServer used to serve the configuration portal
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
+#include <WiFiClientSecure.h>
+#include <UniversalTelegramBot.h>
+
 #include <NTPClient.h>
 
 #include <Ticker.h>
@@ -33,6 +36,8 @@
 #define APP_SECRET        "43b19c66-c839-4e35-8cdd-8366595baf2a-cfd6b6d9-641c-4bfb-87ca-5144a42e993c"   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx"
 #define LIGHT_ID          "5e84b2d20e29fb7f809a5aa5"    // Should look like "5dc1564130xxxxxxxxxxxxxx"
 #define BAUD_RATE         9600                // Change baudrate to your need
+
+#define BOTtoken "1241702060:AAErJRsM0pSqzILAGaVDS-tF7SK1FmvSIfo"
 
 // Display stuff
 // ================================================================
@@ -111,12 +116,48 @@ void tick_snake() {
   inf_idx = (inf_idx + 1) % INF_CNT;
 }
 
-
+// WiFi Stuff
 
 void configModeCallback (WiFiManager *myWiFiManager) {
   Serial.println("Entered config mode");
 }
 
+// Bot stuff
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(BOTtoken, client);
+
+void handleNewMessages(int numNewMessages) {
+  Serial.println("handleNewMessages");
+  Serial.println(String(numNewMessages));
+
+  for (int i=0; i<numNewMessages; i++) {
+    String chat_id = String(bot.messages[i].chat_id);
+    String text = bot.messages[i].text;
+
+    String from_name = bot.messages[i].from_name;
+    if (from_name == "") 
+        from_name = "Guest";
+
+    if (text == "/start") {
+      String welcome = "Welcome to Chill-o-clock " + from_name + ".\n";
+      welcome += "Here are your options...\n\n";
+      welcome += "/chill : If you want to chill\n";
+      welcome += "/no_chill : If you don't want to chill\n";
+      bot.sendMessage(chat_id, welcome);
+    } else if (text == "/chill") {
+        String response = "Let's chill then :)\n";
+        bot.sendMessage(chat_id, response);
+        ticker.attach(1, tick_chill);
+    } else if (text == "/no_chill") {
+        String response = "Bruuuuh... :(\n";
+        bot.sendMessage(chat_id, response);
+        ticker.attach(0.5, tick_time);
+    }
+  }
+}
+
+// Sinric Pro Stuff
 
 struct {
   bool powerState = false;
@@ -190,14 +231,21 @@ void setup()
   ticker.attach(1, tick_chill);
 //  ticker.attach(0.5, tick_time);
 //  ticker.attach(0.05, tick_snake);
-  
 
+    client.setInsecure();
 }
 
 void loop()
 {
     SinricPro.handle();
     timeClient.update();
+    // int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+
+    // while(numNewMessages) {
+    //   Serial.println("got response");
+    //   handleNewMessages(numNewMessages);
+    //   numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    // }
 //    Serial.print(timeClient.getHours());
 //    Serial.print(":");
 //    Serial.print(timeClient.getMinutes());
