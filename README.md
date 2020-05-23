@@ -6,6 +6,8 @@ This clock was inspired by a [Youtube video music live stream by Chillhop Music]
 <!-- ![Image](chill.png =100px) -->
 <img src="images/chill.png" width="800">
 
+TODO: Proper description of what it does
+
 ## Components:
 
 #### 1: Wemos D1 mini
@@ -27,3 +29,36 @@ A case was designed in OnShape to contain all the elements in a simple and strea
 <img src="images/case.png" width="200">
 
 ## Installation:
+
+#### 1: Arduino IDE
+
+Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install the following libraries:
+- NTP client by Fabrice Weinberg
+- Spacebrew Yun by Julio Terra
+- Arduino JSON by Benoit Blanchon
+- IoTWebConf by Balazs Kelemen
+- SinricPro by Boris Jaeger
+- TM1637 by Avishay Orpaz
+- WebSockets by Markus Sattler
+- WiFi Manager by tzapu, tablatronix
+
+#### 2: Sinric Pro
+
+[Sinric Pro](https://sinric.pro/index.html) offers a simple way to control your IOT development boards like RaspberryPi, ESP8226, ESP32 or Arduino with Amazon Alexa or Google Home.
+
+- Create an account and access the [device portal](https://portal.sinric.pro/device/list)
+- Create a new device (Add Device)
+    - Give it any name
+    - As Device Type, select Smart Light Bulb
+    - Replace the LIGHT_ID in the source code for yours
+    - Under "Credentials", create a new App Key and secret. Replace APP_KEY and APP_SECRET in the source code for yours
+
+#### 3: Alexa
+
+In order to control the clock via voice commands, install the Sinric Pro Skill on your Alexa device. In the setup you can log in with your Sinric Pro account and discover and configure your device.
+
+You can create Automations that control your Chill-o-clock.
+
+The chill-o-clock accepts the following commands:
+- On/Off: The device will display CHILL when turned on, and will display the local time when switched off. (e.g. "Alexa, turn chill on" will set the clock to display CHILL)
+- Brightness: The device brightness can be set to values between 0 and 100. (e.g. "Alexa, set chill brightness to 50 percent"). Try setting it to 42 for a little surprise! ;)
