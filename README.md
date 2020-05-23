@@ -10,7 +10,7 @@ This clock was inspired by a [Youtube video music live stream by Chillhop Music]
 Chill-o-clock looks like a standard clock, except it doesn't really tell time! By default, it displays CHILL on the screen. However, it connects to your local WiFi network and can be controlled via Alexa.
 The only configuration it needs is your WiFi credentials, which are managed from a smartphone or another device. It acquires the local time automatically through an NTP client.
 
-<img src="images/clock.jpg" width="800">
+<img src="images/clock.png" width="800">
 
 It can be set up from the Alexa app to follow routines. An example scenario: The clock is displaying the time (like all clocks should), and you issue the command "Alexa, chill". Your clock then displays CHILL on the screen instead, starts playing some mellow lofi jazz and dims your bedroom lights to a custom scene. Too good to be true? 
 
