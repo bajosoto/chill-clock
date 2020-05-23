@@ -6,7 +6,10 @@ This clock was inspired by a [Youtube video music live stream by Chillhop Music]
 <!-- ![Image](chill.png =100px) -->
 <img src="images/chill.png" width="800">
 
-TODO: Proper description of what it does
+## What is this all about?
+Chill-o-clock looks like a standard clock, except it doesn't really tell time! By default, it displays CHILL on the screen. However, it connects to your local WiFi network and can be controlled via Alexa.
+The only configuration it needs is your WiFi credentials, which are managed from a smartphone or another device. It acquires the local time automatically through an NTP client.
+It can be set up from the Alexa app to follow routines. An example scenario: The clock is displaying the time (like all clocks should), and you issue the command "Alexa, chill". Your clock then displays CHILL on the screen instead, starts playing some mellow lofi jazz and dims your bedroom lights to a custom scene. Too good to be true? 
 
 ## Components:
 
@@ -52,6 +55,11 @@ Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install 
     - As Device Type, select Smart Light Bulb
     - Replace the LIGHT_ID in the source code for yours
     - Under "Credentials", create a new App Key and secret. Replace APP_KEY and APP_SECRET in the source code for yours
+
+
+#### 4: Connecting chill-o-clock to your WiFi
+
+When you plug in the device, nothing will show on the screen. That's ok! On your phone or other device, go to your WiFi manager. You should be able to find a network called "chill-o-clock". When you connect, you'll be taken to a screen where you can configure the WiFi credentials on the chill-o-clock. Select your SSID from the menu and type in your password. Your device will automatically disconnect, and your clock will be ready to use!
 
 #### 3: Alexa
 
